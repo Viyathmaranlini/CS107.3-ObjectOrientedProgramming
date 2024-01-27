@@ -1,0 +1,50 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter student's name: ");
+        string studentName = Console.ReadLine();
+
+        
+        Console.Write("Enter exam marks: ");
+        int examMarks = Convert.ToInt32(Console.ReadLine());
+
+        
+        char grade = DetermineGrade(examMarks);
+
+        Console.WriteLine($"{studentName}'s Grade: {grade}");
+
+        
+        Console.ReadLine();
+    }
+
+    static char DetermineGrade(int marks)
+    {
+        char grade;
+
+        if (marks >= 75 && marks <= 100)
+        {
+            grade = 'A';
+        }
+        else if (marks >= 60 && marks <= 74)
+        {
+            grade = 'B';
+        }
+        else if (marks >= 50 && marks <= 59)
+        {
+            grade = 'C';
+        }
+        else if (marks >= 40 && marks <= 49)
+        {
+            grade = 'D';
+        }
+        else
+        {
+            grade = 'F'; 
+        }
+
+        return grade;
+    }
+}
