@@ -1,0 +1,44 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Print First N Tens and Ones");
+
+       
+        Console.Write("Enter the value of N: ");
+        int n = Convert.ToInt32(Console.ReadLine());
+
+        
+        if (n > 0)
+        {
+            Console.WriteLine($"The first {n} tens and ones for integers from 1 to {n} are:");
+
+            
+            PrintTensAndOnes(n, 1);
+        }
+        else
+        {
+            
+            Console.WriteLine("ERROR: Please enter a positive integer.");
+        }
+
+        Console.ReadLine(); 
+    }
+
+    
+    static void PrintTensAndOnes(int n, int current)
+    {
+        if (current <= n)
+        {
+            int tens = current / 10;
+            int ones = current % 10;
+
+            Console.WriteLine($"Number {current}: Tens: {tens}, Ones: {ones}");
+
+           
+            PrintTensAndOnes(n, current + 1);
+        }
+    }
+}
