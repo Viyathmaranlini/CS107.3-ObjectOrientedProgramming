@@ -1,0 +1,43 @@
+@@ -0,0 +1,42 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Sum Calculator");
+
+
+        Console.Write("Enter a positive integer: ");
+        int userInput = Convert.ToInt32(Console.ReadLine());
+
+
+        if (userInput > 0)
+        {
+
+            int sum = CalculateSum(userInput);
+
+            Console.WriteLine($"The sum of all numbers from 1 to {userInput} is: {sum}");
+        }
+        else
+        {
+
+            Console.WriteLine("ERROR: Please enter a positive integer.");
+        }
+
+        Console.ReadLine();
+    }
+
+
+    static int CalculateSum(int n)
+    {
+        int sum = 0;
+
+        for (int i = 1; i <= n; i++)
+        {
+            sum += i;
+        }
+
+        return sum;
+    }
+}
