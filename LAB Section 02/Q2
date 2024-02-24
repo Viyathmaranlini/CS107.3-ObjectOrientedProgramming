@@ -1,0 +1,41 @@
+using System;
+
+class BankAccount
+{
+    public string AccountNumber { get; }
+    public decimal Balance { get; private set; }
+
+    public BankAccount(string accountNumber, decimal initialBalance)
+    {
+        AccountNumber = accountNumber;
+        Balance = initialBalance;
+    }
+
+    public void Deposit(decimal amount)
+    {
+        Balance += amount;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Create a new bank account
+        BankAccount account = new BankAccount("123456789", 100.00m);
+
+        // Perform a deposit
+        decimal depositAmount;
+        Console.Write("Enter deposit amount: ");
+        while (!decimal.TryParse(Console.ReadLine(), out depositAmount) || depositAmount <= 0)
+        {
+            Console.WriteLine("Invalid amount. Please enter a positive number.");
+            Console.Write("Enter deposit amount: ");
+        }
+
+        account.Deposit(depositAmount);
+
+        // Display updated balance
+        Console.WriteLine($"Updated balance: {account.Balance:C}");
+    }
+}
