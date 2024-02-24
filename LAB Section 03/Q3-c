@@ -1,0 +1,33 @@
+using System;
+
+public class Product
+{
+    // Properties
+    public int ProductId { get; private set; }
+    public string ProductName { get; private set; }
+    public double Price { get; private set; }
+    public int QuantityInStock { get; private set; }
+
+    // Constructor
+    public Product(int productId, string productName, double price, int quantityInStock)
+    {
+        ProductId = productId;
+        ProductName = productName;
+        Price = price;
+        QuantityInStock = quantityInStock;
+    }
+
+    // Method to display product information
+    public void DisplayInfo()
+    {
+        Console.WriteLine($"Product ID: {ProductId}");
+        Console.WriteLine($"Product Name: {ProductName}");
+        Console.WriteLine($"Price: ${Price:F2}");
+        Console.WriteLine($"Quantity in Stock: {QuantityInStock}");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+ 
