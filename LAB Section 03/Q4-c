@@ -1,0 +1,41 @@
+using System;
+
+// Base class for geometric shapes
+public abstract class Shape
+{
+    // Abstract method to calculate area
+    public abstract double CalculateArea();
+}
+
+// Circle class inheriting from Shape
+public class Circle : Shape
+{
+    // Radius property
+    public double Radius { get; private set; }
+
+    // Constructor
+    public Circle(double radius)
+    {
+        Radius = radius;
+    }
+
+    // Implementation of abstract method to calculate area
+    public override double CalculateArea()
+    {
+        return Math.PI * Radius * Radius;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Create an instance of the Circle class representing a circle with a radius of 4
+        Circle circle = new Circle(4);
+
+        // Display the area of the circle
+        Console.WriteLine("Circle Area:");
+        Console.WriteLine($"Radius: {circle.Radius}");
+        Console.WriteLine($"Area: {circle.CalculateArea():F2}");
+    }
+}
