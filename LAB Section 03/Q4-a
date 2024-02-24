@@ -1,0 +1,40 @@
+using System;
+
+// Base class for geometric shapes
+public abstract class Shape
+{
+    public abstract double Area();
+}
+
+// Rectangle class inheriting from Shape
+public class Rectangle : Shape
+{
+    // Properties
+    public double Length { get; }
+    public double Width { get; }
+
+    // Constructor
+    public Rectangle(double length, double width)
+    {
+        Length = length;
+        Width = width;
+    }
+
+    // Method to calculate area
+    public override double Area()
+    {
+        return Length * Width;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Creating an instance of Rectangle with length 5 and width 3
+        Rectangle rectangle = new Rectangle(5, 3);
+
+        // Displaying area of the rectangle
+        Console.WriteLine("Rectangle Area: " + rectangle.Area());
+    }
+}
