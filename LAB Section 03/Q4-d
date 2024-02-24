@@ -1,0 +1,28 @@
+using System;
+
+// Base class for geometric shapes
+public abstract class Shape
+{
+    // Abstract method to calculate area
+    public abstract double CalculateArea();
+
+    // Abstract method to calculate perimeter
+    public abstract double CalculatePerimeter();
+
+    // Method to display shape information
+    public virtual void DisplayInfo()
+    {
+        Console.WriteLine($"Shape: {GetType().Name}");
+        Console.WriteLine($"Area: {CalculateArea()}");
+        Console.WriteLine($"Perimeter: {CalculatePerimeter()}");
+    }
+}
+
+// Circle class
+public class Circle : Shape
+{
+    // Properties
+    public double Radius { get; }
+
+    // Constructor
+    public Circle(double radius
