@@ -1,0 +1,52 @@
+using System;
+
+public class Course
+{
+    private string _courseName;
+    private int _credits;
+    private double _grade;
+
+    public string CourseName
+    {
+        get { return _courseName; }
+        set { _courseName = value; }
+    }
+
+    public int Credits
+    {
+        get { return _credits; }
+        set { _credits = value; }
+    }
+
+    public double Grade
+    {
+        get { return _grade; }
+        set
+        {
+            if (value < 0 || value > 100)
+            {
+                throw new ArgumentException("Grade must be between 0 and 100.");
+            }
+            _grade = value;
+        }
+    }
+
+    public string LetterGrade
+    {
+        get { return CalculateLetterGrade(); }
+    }
+
+    private string CalculateLetterGrade()
+    {
+        if (_grade >= 90)
+            return "A";
+        else if (_grade >= 80)
+            return "B";
+        else if (_grade >= 70)
+            return "C";
+        else if (_grade >= 60)
+            return "D";
+        else
+            return "F";
+    }
+}
