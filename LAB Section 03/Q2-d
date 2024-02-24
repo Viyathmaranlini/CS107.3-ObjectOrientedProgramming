@@ -1,0 +1,36 @@
+using System;
+
+public class Employee
+{
+    // Properties
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public double Salary { get; private set; } // Private set to prevent external modification
+
+    // Constructor
+    public Employee(string name, int age, double salary)
+    {
+        Name = name;
+        Age = age;
+        Salary = salary;
+    }
+
+    // Method to display employee information
+    public void DisplayInfo()
+    {
+        Console.WriteLine($"Name: {Name}");
+        Console.WriteLine($"Age: {Age}");
+        Console.WriteLine($"Salary: {Salary:C}");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Creating an instance of Employee
+        Employee employee1 = new Employee("John Doe", 30, 50000);
+
+        // Displaying employee information
+        Console.WriteLine("Employee Information:");
+        employee1.DisplayI
