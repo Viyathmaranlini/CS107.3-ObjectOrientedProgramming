@@ -1,0 +1,41 @@
+using System;
+
+public class Product
+{
+    // Properties
+    public int ProductId { get; private set; }
+    public string ProductName { get; private set; }
+    public decimal Price { get; private set; }
+    public int QuantityInStock { get; private set; }
+
+    // Constructor
+    public Product(int productId, string productName, decimal price, int quantityInStock)
+    {
+        ProductId = productId;
+        ProductName = productName;
+        Price = price;
+        QuantityInStock = quantityInStock;
+    }
+
+    // Method to display product information
+    public void DisplayProductInfo()
+    {
+        Console.WriteLine($"Product ID: {ProductId}");
+        Console.WriteLine($"Product Name: {ProductName}");
+        Console.WriteLine($"Price: {Price:C}");
+        Console.WriteLine($"Quantity in Stock: {QuantityInStock}");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Creating an instance of Product
+        Product laptop = new Product(101, "Laptop", 800, 10);
+
+        // Displaying product information
+        Console.WriteLine("Product Information:");
+        laptop.DisplayProductInfo();
+    }
+}
