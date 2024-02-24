@@ -1,0 +1,61 @@
+using System;
+
+public class Course
+{
+    private string instructorName;
+
+    // Property to access the instructor's name
+    public string InstructorName
+    {
+        get { return instructorName; }
+        private set
+        {
+            // Validate that the input is not empty
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException("Instructor name cannot be empty or whitespace.");
+            }
+            instructorName = value;
+        }
+    }
+
+    // Constructor
+    public Course(string instructorName)
+    {
+        // Use the property to set the instructor's name to ensure validation
+        InstructorName = instructorName;
+    }
+
+    // Public method to set the instructor's name with validation
+    public void SetInstructorName(string newName)
+    {
+        // Use the property to ensure validation
+        InstructorName = newName;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Creating an instance of the Course class
+        Course course = new Course("John Doe");
+
+        // Accessing the instructor's name using the property
+        Console.WriteLine("Instructor's Name: " + course.InstructorName);
+
+        // Changing the instructor's name using the public method
+        course.SetInstructorName("Jane Smith");
+        Console.WriteLine("New Instructor's Name: " + course.InstructorName);
+
+        // Trying to set an empty instructor's name (will throw an exception)
+        try
+        {
+            course.SetInstructorName("");
+        }
+        catch (ArgumentException ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+        }
+    }
+}
