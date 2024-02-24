@@ -1,0 +1,54 @@
+using System;
+
+class Employee
+{
+    // Properties
+    public int EmployeeId { get; private set; }
+    public string FullName { get; set; }
+    public string Department { get; set; }
+    public double Salary { get; set; }
+
+    // Constructor
+    public Employee(int id, string fullName, string department, double salary)
+    {
+        EmployeeId = id;
+        FullName = fullName;
+        Department = department;
+        Salary = salary;
+    }
+
+    // Method to update full name
+    public void UpdateFullName(string newFullName)
+    {
+        FullName = newFullName;
+    }
+
+    // Method to display employee information
+    public void DisplayEmployeeInfo()
+    {
+        Console.WriteLine($"Employee ID: {EmployeeId}");
+        Console.WriteLine($"Full Name: {FullName}");
+        Console.WriteLine($"Department: {Department}");
+        Console.WriteLine($"Salary: {Salary}");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Creating an instance of Employee
+        Employee emp1 = new Employee(1, "John Doe", "IT", 50000);
+
+        // Displaying initial employee information
+        Console.WriteLine("Initial Employee Information:");
+        emp1.DisplayEmployeeInfo();
+
+        // Updating full name
+        emp1.UpdateFullName("Jane Smith");
+
+        // Displaying updated employee information
+        Console.WriteLine("\nEmployee Information after Full Name Update:");
+        emp1.DisplayEmployeeInfo();
+    }
+}
