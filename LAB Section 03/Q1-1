@@ -1,0 +1,61 @@
+using System;
+
+public class Course
+{
+    private string courseName;
+    private string instructorName;
+    private double grade;
+
+    // Properties
+    public string CourseName
+    {
+        get { return courseName; }
+        set { courseName = value; }
+    }
+
+    public string InstructorName
+    {
+        get { return instructorName; }
+        set { instructorName = value; }
+    }
+
+    public double Grade
+    {
+        get { return grade; }
+        set
+        {
+            if (value >= 0 && value <= 100)
+                grade = value;
+            else
+                throw new ArgumentOutOfRangeException("Grade must be between 0 and 100.");
+        }
+    }
+
+    // Constructor
+    public Course(string courseName, string instructorName, double grade)
+    {
+        CourseName = courseName;
+        InstructorName = instructorName;
+        Grade = grade;
+    }
+
+    // Method to display course information
+    public void DisplayCourseInfo()
+    {
+        Console.WriteLine("Course Name: " + CourseName);
+        Console.WriteLine("Instructor: " + InstructorName);
+        Console.WriteLine("Grade: " + Grade);
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Create a new Course object
+        Course course = new Course("Introduction to Programming", "John Doe", 95.5);
+
+        // Display course information
+        course.DisplayCourseInfo();
+    }
+}
