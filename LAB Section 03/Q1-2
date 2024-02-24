@@ -1,0 +1,45 @@
+using System;
+
+public class Course
+{
+    private string courseName;
+    private char grade;
+
+    // Public read-only property for CourseName
+    public string CourseName
+    {
+        get { return courseName; }
+    }
+
+    // Public read-only property for Grade
+    public char Grade
+    {
+        get { return grade; }
+    }
+
+    // Constructor to initialize CourseName and Grade
+    public Course(string courseName, char grade)
+    {
+        // Validate courseName
+        if (string.IsNullOrEmpty(courseName))
+        {
+            throw new ArgumentException("Course name cannot be null or empty.");
+        }
+
+        // Validate grade
+        if (!IsValidGrade(grade))
+        {
+            throw new ArgumentException("Invalid grade.");
+        }
+
+        this.courseName = courseName;
+        this.grade = grade;
+    }
+
+    // Method to validate the grade
+    private bool IsValidGrade(char grade)
+    {
+        // Assuming valid grades are A, B, C, D, or F
+        return grade == 'A' || grade == 'B' || grade == 'C' || grade == 'D' || grade == 'F';
+    }
+}
