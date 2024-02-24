@@ -1,0 +1,75 @@
+using System;
+
+public class Course
+{
+    // Private fields
+    private string courseName;
+    private string instructorName;
+    private char letterGrade;
+    private double numericGrade;
+
+    // Properties
+    public string CourseName
+    {
+        get { return courseName; }
+        set { courseName = value; }
+    }
+
+    public string InstructorName
+    {
+        get { return instructorName; }
+        set { instructorName = value; }
+    }
+
+    public char LetterGrade
+    {
+        get { return letterGrade; }
+        set { letterGrade = value; }
+    }
+
+    // Constructor
+    public Course(string courseName, string instructorName, double numericGrade)
+    {
+        this.courseName = courseName;
+        this.instructorName = instructorName;
+        this.numericGrade = numericGrade;
+        // Determine letter grade based on numeric grade
+        this.letterGrade = DetermineLetterGrade(numericGrade);
+    }
+
+    // Private method to determine letter grade from numeric grade
+    private char DetermineLetterGrade(double numericGrade)
+    {
+        if (numericGrade >= 90)
+            return 'A';
+        else if (numericGrade >= 80)
+            return 'B';
+        else if (numericGrade >= 70)
+            return 'C';
+        else if (numericGrade >= 60)
+            return 'D';
+        else
+            return 'F';
+    }
+
+    // Public method to print course information
+    public void PrintCourseInfo()
+    {
+        Console.WriteLine($"Course Name: {courseName}");
+        Console.WriteLine($"Instructor Name: {instructorName}");
+        Console.WriteLine($"Letter Grade: {letterGrade}");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Creating an instance of Course
+        Course course1 = new Course("Math", "Mr. Smith", 85.5);
+
+        // Printing course information
+        course1.PrintCourseInfo();
+    }
+}
+
