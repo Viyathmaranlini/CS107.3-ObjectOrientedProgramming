@@ -1,0 +1,42 @@
+using System;
+
+// Base class: GeometricShape
+public abstract class GeometricShape
+{
+    // Abstract method to calculate area
+    public abstract double CalculateArea();
+
+    // Abstract method to calculate perimeter
+    public abstract double CalculatePerimeter();
+
+    // Virtual method to display shape information
+    public virtual void DisplayShapeInfo()
+    {
+        Console.WriteLine("Shape Information:");
+    }
+}
+
+// Derived class: Rectangle
+public class Rectangle : GeometricShape
+{
+    // Properties
+    public double Length { get; set; }
+    public double Width { get; set; }
+
+    // Constructor
+    public Rectangle(double length, double width)
+    {
+        Length = length;
+        Width = width;
+    }
+
+    // Implementation of abstract method to calculate area
+    public override double CalculateArea()
+    {
+        return Length * Width;
+    }
+
+    // Implementation of abstract method to calculate perimeter
+    public override double CalculatePerimeter()
+    {
+  
