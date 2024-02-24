@@ -1,0 +1,54 @@
+using System;
+
+class LibraryBook
+{
+    public string Title { get; }
+    public string Author { get; }
+    public bool Available { get; private set; }
+
+    public LibraryBook(string title, string author)
+    {
+        Title = title;
+        Author = author;
+        Available = true;
+    }
+
+    public void BorrowBook()
+    {
+        if (Available)
+        {
+            Available = false;
+            Console.WriteLine($"Book '{Title}' by {Author} has been borrowed.");
+        }
+        else
+        {
+            Console.WriteLine($"Book '{Title}' by {Author} is not available for borrowing.");
+        }
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Instantiate multiple book objects
+        List<LibraryBook> books = new List<LibraryBook>
+        {
+            new LibraryBook("To Kill a Mockingbird", "Harper Lee"),
+            new LibraryBook("1984", "George Orwell"),
+            new LibraryBook("The Great Gatsby", "F. Scott Fitzgerald")
+        };
+
+        // Perform book borrowing
+        books[0].BorrowBook(); // Borrow the first book
+        books[1].BorrowBook(); // Borrow the second book
+        books[0].BorrowBook(); // Try to borrow the first book again
+
+        // Display the updated library status
+        Console.WriteLine("\nLibrary Status:");
+        foreach (var book in books)
+        {
+            Console.WriteLine($"Title: {book.Title}, Author: {book.Author}, Available: {(book.Available ? "Yes" : "No")}");
+        }
+    }
+}
