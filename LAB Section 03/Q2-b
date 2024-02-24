@@ -1,0 +1,33 @@
+using System;
+
+public class Employee
+{
+    // Properties
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public string Department { get; set; }
+    public string Position { get; set; }
+    public int EmployeeId { get; }
+
+    // Private field for employee ID
+    private static int nextEmployeeId = 1;
+
+    // Constructor
+    public Employee(string name, int age, string department, string position)
+    {
+        Name = name;
+        Age = age;
+        Department = department;
+        Position = position;
+        EmployeeId = nextEmployeeId++;
+    }
+
+    // Method to display employee information
+    public void DisplayEmployeeInfo()
+    {
+        Console.WriteLine($"Name: {Name}");
+        Console.WriteLine($"Age: {Age}");
+        Console.WriteLine($"Department: {Department}");
+        Console.WriteLine($"Position: {Position}");
+        Console.WriteLine($"Employee ID: {EmployeeId}");
+   
