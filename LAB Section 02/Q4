@@ -1,0 +1,32 @@
+using System;
+
+class Product
+{
+    public string ProductName { get; }
+    public decimal Price { get; }
+
+    public Product(string productName, decimal price)
+    {
+        ProductName = productName;
+        Price = price;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Instantiate objects of Product class
+        Product product1 = new Product("Laptop", 999.99m);
+        Product product2 = new Product("Smartphone", 499.99m);
+
+        // Display product details
+        Console.WriteLine("Product 1:");
+        Console.WriteLine($"Name: {product1.ProductName}");
+        Console.WriteLine($"Price: {product1.Price:C}");
+
+        Console.WriteLine("\nProduct 2:");
+        Console.WriteLine($"Name: {product2.ProductName}");
+        Console.WriteLine($"Price: {product2.Price:C}");
+    }
+}
