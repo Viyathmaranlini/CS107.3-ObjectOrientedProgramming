@@ -1,0 +1,57 @@
+using System;
+
+class TemperatureTracker
+{
+    private double[] temperatures;
+
+    public TemperatureTracker(int daysInWeek)
+    {
+        temperatures = new double[daysInWeek];
+    }
+
+    public void SetTemperature(int dayIndex, double temperature)
+    {
+        if (dayIndex >= 0 && dayIndex < temperatures.Length)
+        {
+            temperatures[dayIndex] = temperature;
+        }
+        else
+        {
+            Console.WriteLine("Invalid day index.");
+        }
+    }
+
+    public void DisplayWeeklyTemperatures()
+    {
+        Console.WriteLine("Weekly Temperature Report:");
+        for (int i = 0; i < temperatures.Length; i++)
+        {
+            Console.WriteLine($"Day {i + 1}: {temperatures[i]}°C");
+        }
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int daysInWeek = 7;
+        TemperatureTracker tracker = new TemperatureTracker(daysInWeek);
+
+        // Input temperatures for each day
+        for (int i = 0; i < daysInWeek; i++)
+        {
+            Console.Write($"Enter temperature for day {i + 1}: ");
+            double temperature;
+            while (!double.TryParse(Console.ReadLine(), out temperature))
+            {
+                Console.WriteLine("Invalid temperature. Please enter a valid number.");
+                Console.Write($"Enter temperature for day {i + 1}: ");
+            }
+            tracker.SetTemperature(i, temperature);
+        }
+
+        // Display the weekly temperature report
+        tracker.DisplayWeeklyTemperatures();
+    }
+}
