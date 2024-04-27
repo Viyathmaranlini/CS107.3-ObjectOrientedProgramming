@@ -1,0 +1,25 @@
+using System;
+using System.Windows.Forms;
+
+namespace AdditionApp
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            int num1 = Convert.ToInt32(textBoxNum1.Text);
+            int num2 = Convert.ToInt32(textBoxNum2.Text);
+
+            int sum = num1 + num2;
+
+            labelResult1.Text = num1.ToString();
+            labelResult2.Text = num2.ToString();
+            labelSum.Text = sum.ToString();
+        }
+    }
+}
