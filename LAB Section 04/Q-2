@@ -1,0 +1,29 @@
+using System;
+using System.Windows.Forms;
+
+namespace ArithmeticApp
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void buttonCalculate_Click(object sender, EventArgs e)
+        {
+            double num1 = double.Parse(textBoxNum1.Text);
+            double num2 = double.Parse(textBoxNum2.Text);
+
+            double addition = num1 + num2;
+            double subtraction = num1 - num2;
+            double multiplication = num1 * num2;
+            double division = num1 / num2;
+
+            labelAddition.Text = addition.ToString();
+            labelSubtraction.Text = subtraction.ToString();
+            labelMultiplication.Text = multiplication.ToString();
+            labelDivision.Text = division.ToString();
+        }
+    }
+}
