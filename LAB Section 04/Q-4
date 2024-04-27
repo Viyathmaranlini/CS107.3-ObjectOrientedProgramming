@@ -1,0 +1,83 @@
+using System;
+using System.Windows.Forms;
+
+namespace CalculatorApp
+{
+    public partial class Form1 : Form
+    {
+        private double currentValue;
+        private double memoryValue;
+        private string operation;
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void buttonNumber_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            textBoxInput.Text += button.Text;
+        }
+
+        private void buttonOperator_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            operation = button.Text;
+            currentValue = double.Parse(textBoxInput.Text);
+            textBoxInput.Text = "";
+        }
+
+        private void buttonEqual_Click(object sender, EventArgs e)
+        {
+            double secondValue = double.Parse(textBoxInput.Text);
+            double result = Calculate(currentValue, secondValue, operation);
+            textBoxInput.Text = result.ToString();
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            textBoxInput.Text = "";
+        }
+
+        private void buttonMemoryClear_Click(object sender, EventArgs e)
+        {
+            memoryValue = 0;
+        }
+
+        private void buttonMemoryRecall_Click(object sender, EventArgs e)
+        {
+            textBoxInput.Text = memoryValue.ToString();
+        }
+
+        private void buttonMemoryAdd_Click(object sender, EventArgs e)
+        {
+            memoryValue += double.Parse(textBoxInput.Text);
+        }
+
+        private void buttonMemorySubtract_Click(object sender, EventArgs e)
+        {
+            memoryValue -= double.Parse(textBoxInput.Text);
+        }
+
+        private double Calculate(double num1, double num2, string operation)
+        {
+            switch (operation)
+            {
+                case "+":
+                    return num1 + num2;
+                case "-":
+                    return num1 - num2;
+                case "*":
+                    return num1 * num2;
+                case "/":
+                    if (num2 != 0)
+                        return num1 / num2;
+                    else
+                        MessageBox.Show("Error: Division by zero");
+                    break;
+            }
+            return 0;
+        }
+    }
+}
